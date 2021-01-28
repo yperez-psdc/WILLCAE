@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="manufacturing_line_inherit_form_view" model="ir.ui.view">
+            <field name="name">manufacturing.line.inherit.form.view</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="mrp.view_stock_move_lots"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='product_id']"
+                        position="attributes">
+                        <attribute name="options">{"no_quick_create": True}</attribute>
+                    </xpath>
+                </field>
+        </record>
+        <record id="manufacturing_line_inherit_tree_view" model="ir.ui.view">
+            <field name="name">manufacturing.line.inherit.tree.view</field>
+            <field name="model">stock.move</field>
+            <field name="inherit_id" ref="mrp.view_stock_move_raw_tree"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='product_id']"
+                        position="attributes">
+                        <attribute name="options">{"no_quick_create": True}</attribute>
+                    </xpath>
+                </field>
+        </record>
+    </data>
+</odoo>

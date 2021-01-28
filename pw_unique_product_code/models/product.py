@@ -10,4 +10,4 @@ class ProductProduct(models.Model):
     def _check_duplicate_code(self):
         res = self.search([('default_code', '=', self.default_code), ('default_code', '!=', False)])
         if len(res) > 1:
-            raise ValidationError(_('Internal Reference must be unique !'))
+            raise ValidationError(_('La referencia interna debe no puede ser repetido'))
