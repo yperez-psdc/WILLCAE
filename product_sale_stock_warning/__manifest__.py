@@ -25,7 +25,7 @@ product out of stock
     'version': '1.1.2',
     'category' : 'Sales/Sales',
     'depends': [
-        'sale_stock','base','account'
+        'sale_stock','base','account','base_import','base_setup','auth_signup',
     ],
     'data':[
         'views/product_template_view.xml',
