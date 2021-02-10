@@ -11,9 +11,9 @@ class SaleOrder(models.Model):
         help="Confirm the sales order without checking the quantity."
     )
 
-    hide = fields.Boolean(
-        string="Oculto"
-    )
+    # hide = fields.Boolean(
+    #     string="Oculto"
+    # )
 
     # def _compute_hide(self):
     #     if self.env['res.users'].search([('check_no_stock','=',True)]):

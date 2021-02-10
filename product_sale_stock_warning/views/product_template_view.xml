@@ -9,7 +9,7 @@
                     <div>
                         <field name="custom_check_onhand_qty" attrs="{'invisible':[('hide', '!=', True)]}"/>
                         <label for="custom_check_onhand_qty" string="Sales Order Alert"/>
-                        <field name="hide" invisible="1"/>
+                        <!-- <field name="hide" invisible="1"/> -->
                     </div>
                 </xpath>
             </field>

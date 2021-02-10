@@ -3,13 +3,13 @@
 
 from odoo import api, fields, models, _
 
-class ResUsers(models.Model):
-    _inherit = 'res.users'
+# class ResUsers(models.Model):
+#     _inherit = 'res.users'
 
-    check_no_stock = fields.Boolean(
-    	string="Venta Sin Stock",
-        help="Permite ver los check para hacer ventas sin stock"
-    )
+#     check_no_stock = fields.Boolean(
+#     	string="Venta Sin Stock",
+#         help="Permite ver los check para hacer ventas sin stock"
+#     )
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
@@ -19,9 +19,9 @@ class ProductTemplate(models.Model):
         help="If qty not in hand at warehouse then raise alert on confirm sales time ."
     )
 
-    hide = fields.Boolean(
-        string="Oculto"
-    )
+    # hide = fields.Boolean(
+    #     string="Oculto"
+    # )
 
     # def _compute_hide(self):
     #     if self.env['res.users'].search([('check_no_stock','=',True)]):
