@@ -9,7 +9,18 @@ class SaleOrder(models.Model):
     custom_check_onhand_qty = fields.Boolean(
         string="Forcefully Confirm",
         help="Confirm the sales order without checking the quantity.",
+        compute="_compute_hide"
     )
+
+    hide = fields.Boolean(
+        string="Oculto"
+    )
+
+    def _compute_hide(self):
+        if self.env["res.users"].search([('check_no_stock','=',True)]):
+            self.hide = True
+        else:
+            self.hide = False
 
     def action_confirm(self):
         if self._context.get('website_id'):

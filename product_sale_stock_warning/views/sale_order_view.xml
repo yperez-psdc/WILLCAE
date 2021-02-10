@@ -6,7 +6,7 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//form//sheet//notebook//page[@name='other_information']//field[@name='client_order_ref']" position="after">
-                    <field name="custom_check_onhand_qty"/>
+                    <field name="custom_check_onhand_qty" attrs="{'invisible':[('hide', '!=', True)]}"/>
                 </xpath>
             </field>
         </record>
