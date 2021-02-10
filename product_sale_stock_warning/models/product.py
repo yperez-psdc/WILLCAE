@@ -16,16 +16,15 @@ class ProductTemplate(models.Model):
 
     custom_check_onhand_qty = fields.Boolean(
     	string="Sales Order Alert",
-        help="If qty not in hand at warehouse then raise alert on confirm sales time .",
-        compute="_compute_hide"
+        help="If qty not in hand at warehouse then raise alert on confirm sales time ."
     )
 
     hide = fields.Boolean(
         string="Oculto"
     )
 
-    def _compute_hide(self):
-        if self.env['res.users'].search([('check_no_stock','=',True)]):
-            self.hide = True
-        else:
-            self.hide = False
+    # def _compute_hide(self):
+    #     if self.env['res.users'].search([('check_no_stock','=',True)]):
+    #         self.hide = True
+    #     else:
+    #         self.hide = False
