@@ -16,7 +16,8 @@ class ProductTemplate(models.Model):
 
     custom_check_onhand_qty = fields.Boolean(
     	string="Sales Order Alert",
-        help="If qty not in hand at warehouse then raise alert on confirm sales time ."
+        help="If qty not in hand at warehouse then raise alert on confirm sales time .",
+        compute="_compute_hide"
     )
 
     hide = fields.Boolean(

@@ -8,7 +8,8 @@ class SaleOrder(models.Model):
 
     custom_check_onhand_qty = fields.Boolean(
         string="Forcefully Confirm",
-        help="Confirm the sales order without checking the quantity."
+        help="Confirm the sales order without checking the quantity.",
+        compute="_compute_hide"
     )
 
     hide = fields.Boolean(
