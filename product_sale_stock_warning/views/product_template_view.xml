@@ -8,8 +8,7 @@
                 <xpath expr="//div[@name='options']//div[last()]" position="after">
                     <div>
                         <field name="custom_check_onhand_qty" attrs="{'invisible':[('hide', '!=', True)]}"/>
-                        <label for="custom_check_onhand_qty" string="Sales Order Alert"/>
-                        <field name="hide" invisible="1"/>
+                        <label for="custom_check_onhand_qty" string="Sales Order Alert" attrs="{'invisible':[('hide', '!=', True)]}"/>
                     </div>
                 </xpath>
             </field>
@@ -21,8 +20,18 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='action_id']" position="after">
                     <div>
-                        <field name="check_no_stock"/>
+                        <field name="check_no_stock" string="Venta sin Stock"/>
                     </div>
+                </xpath>
+            </field>
+        </record>
+        <record id="product_template_form_view_inherit_is_hide" model="ir.ui.view">
+            <field name="name">product.template.form.inherit.hide</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="product.product_template_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@name='options']//div[last()]" position="before">
+                    <field name="hide" invisible="1"/>
                 </xpath>
             </field>
         </record>
