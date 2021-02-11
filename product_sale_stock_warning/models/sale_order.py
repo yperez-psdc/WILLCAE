@@ -12,8 +12,15 @@ class SaleOrder(models.Model):
     )
 
     hide = fields.Boolean(
-        string="Oculto"
+        string="Oculto",
+        compute="_compute_hide"
     )
+
+    def _compute_hide(self):
+        if self.env['res.users'].search([('check_no_stock', '=', True)]):
+            self.hide = True
+        else:
+            self.hide = False
 
     def action_confirm(self):
         if self._context.get('website_id'):

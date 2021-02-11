@@ -21,7 +21,8 @@
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='action_id']" position="after">
                     <div>
-                        <field name="check_no_stock" string="Venta sin Stock"/>
+                        <field name="check_no_stock"/>
+                        <label for="check_no_stock" string="Venta sin Stock"/>
                     </div>
                 </xpath>
             </field>

@@ -9,17 +9,8 @@ class Users(models.Model):
     check_no_stock = fields.Boolean(
     	string="Venta Sin Stock",
         help="Permite ver los check para hacer ventas sin stock",
-        compute="_compute_hide",
         readonly=False
     )
-
-    def _compute_hide(self):
-        if self.check_no_stock == True:
-            self.env['product.template'].write({'hide':True})
-            self.env['sale.order'].write({'hide':True})
-        else:
-            self.env['product.template'].write({'hide':False})
-            self.env['sale.order'].write({'hide':False})
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
@@ -30,5 +21,12 @@ class ProductTemplate(models.Model):
     )
 
     hide = fields.Boolean(
-        string="Oculto"
+        string="Oculto",
+        compute="_compute_hide"
     )
+
+    def _compute_hide(self):
+        if self.env['res.users'].search([('check_no_stock', '=', True)]):
+            self.hide = True
+        else:
+            self.hide = False
