@@ -9,7 +9,8 @@ class Users(models.Model):
     check_no_stock = fields.Boolean(
     	string="Venta Sin Stock",
         help="Permite ver los check para hacer ventas sin stock",
-        compute="_compute_hide"
+        compute="_compute_hide",
+        readonly=False
     )
 
     def _compute_hide(self):
