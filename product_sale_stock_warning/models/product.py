@@ -12,15 +12,13 @@ class Users(models.Model):
         compute="_compute_hide"
     )
 
-    hide = fields.Boolean(
-        string="Oculto"
-    )
-
     def _compute_hide(self):
         if self.check_no_stock == True:
-            self.hide = True
+            self.env['product.template'].write({'hide':True})
+            self.env['sale.order'].write({'hide':True})
         else:
-            self.hide = False
+            self.env['product.template'].write({'hide':False})
+            self.env['sale.order'].write({'hide':False})
 
 class ProductTemplate(models.Model):
     _inherit = 'product.template'
@@ -28,4 +26,8 @@ class ProductTemplate(models.Model):
     custom_check_onhand_qty = fields.Boolean(
     	string="Sales Order Alert",
         help="If qty not in hand at warehouse then raise alert on confirm sales time ."
+    )
+
+    hide = fields.Boolean(
+        string="Oculto"
     )

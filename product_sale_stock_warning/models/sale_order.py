@@ -11,6 +11,10 @@ class SaleOrder(models.Model):
         help="Confirm the sales order without checking the quantity."
     )
 
+    hide = fields.Boolean(
+        string="Oculto"
+    )
+
     def action_confirm(self):
         if self._context.get('website_id'):
             return super(SaleOrder, self).action_confirm()
